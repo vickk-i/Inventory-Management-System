@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header text-center bg-gradient-primary text-white py-4">
+                    <h2>Add New Item</h2>
+                    <p class="mb-0">Fill in the details to add a new inventory item</p>
+                </div>
+                <div class="card-body bg-light">
+                    <form method="POST" class="px-4 py-3">
+                        <!-- Item Name Field -->
+                        <div class="mb-4">
+                            <label for="name" class="form-label fw-bold text-primary">Item Name</label>
+                            <input type="text" name="name" id="name" class="form-control border-primary rounded-pill" placeholder="Enter item name" required>
+                        </div>
+
+                        <!-- Quantity Field -->
+                        <div class="mb-4">
+                            <label for="quantity" class="form-label fw-bold text-primary">Quantity</label>
+                            <input type="number" name="quantity" id="quantity" class="form-control border-primary rounded-pill" placeholder="Enter quantity" required>
+                        </div>
+
+                        <!-- Price Field -->
+                        <div class="mb-4">
+                            <label for="price" class="form-label fw-bold text-primary">Price</label>
+                            <input type="number" name="price" id="price" step="0.01" class="form-control border-primary rounded-pill" placeholder="Enter price" required>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-gradient-primary rounded-pill py-2">
+                                <span class="fw-bold text-uppercase">Add Item</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center bg-gradient-primary text-white py-3">
+                    <small><a href="/" class="text-warning fw-bold">Back to Inventory</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gradient Button and Header Styling -->
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+    }
+    .btn-gradient-primary {
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        border: none;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-gradient-primary:hover {
+        background: linear-gradient(to right, #feb47b, #ff7e5f);
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+</style>
+{% endblock %}

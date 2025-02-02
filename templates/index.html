@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4 text-primary">Inventory List</h1>
+
+    <!-- Inventory Table -->
+    <div class="table-responsive">
+        <table class="table table-striped table-hover shadow-lg rounded">
+            <thead class="table-primary">
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>
+                        <a href="/update/{{ item.id }}" class="btn btn-sm btn-warning me-2">Edit</a>
+                        <a href="/delete/{{ item.id }}" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Item Button -->
+    <div class="text-end mt-3">
+        <a href="/add" class="btn btn-gradient-primary rounded-pill">Add New Item</a>
+    </div>
+</div>
+
+<!-- Gradient Button Styling -->
+<style>
+    .btn-gradient-primary {
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        color: white;
+        border: none;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-gradient-primary:hover {
+        background: linear-gradient(to right, #2575fc, #6a11cb);
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+</style>
+{% endblock %}
